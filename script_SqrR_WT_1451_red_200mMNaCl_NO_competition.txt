@@ -1,0 +1,113 @@
+Welcome to DynaFit.  Please complete the script template below.
+
+To get started, choose menu Help :: Getting Started.
+
+_______________________________________________________________________
+
+[task]
+
+
+
+  data = equilibria
+
+
+
+  task = fit
+
+
+
+[mechanism]
+
+
+
+ 
+
+
+
+  ;P + P <==> PP : K1 assoc.
+
+
+
+  PP + D <==> PPD : K2 assoc.
+
+
+
+  
+
+
+
+[constants]
+
+
+
+
+
+  ;K1 = 1000    ; unit: nM-1   tigth binding 10^12M-1
+
+
+
+  K2 = 0.002 ? ; unit: nM-1
+
+  
+
+
+
+
+
+[data]
+
+
+
+; error   data
+
+
+
+
+
+
+
+ ; mesh logarithmic from 0 to 100 step 1
+
+
+
+ 
+
+ ; mesh  linear from 0 to 10000 step 1 
+
+ 
+
+
+
+; mesh is not required.
+
+
+
+   directory D:\Giuliano\Doctorado\Anisotropy\20211103
+   extension txt
+
+   
+
+  variable PP
+
+  file 20211103_Anis_Competition_5nM_1451new_33.0uM_SqrR_TETRA_CysSSH_Buffer200mMNaCl_DynafitInput| response D = 0.032045355 ?  ,  PPD = 0.0338531898 ? ,   | conc D = 5  |
+  ;file 20210720_Anis_5nM_1451new_3.3uM_SqrR_procesed_DYNAFIT_INPUT_shortData| response D = 0.0233049142 ?  ,  PPD = 0.0289894562 ? ,   | conc D = 5  |
+  ;file script_SqrR_WT_1451_red_200mMNaCl_competition| response D = 0.0233049142 ?  ,  PPD = 0.0289894562 ? ,   | conc D = 5  |
+  
+
+[output]
+
+
+
+   directory D:\Giuliano\Doctorado\Anisotropy\20211103\DynafitOutput
+
+
+[settings]
+
+{Output}
+
+BlackBackground = n 
+
+   
+
+[end]
+

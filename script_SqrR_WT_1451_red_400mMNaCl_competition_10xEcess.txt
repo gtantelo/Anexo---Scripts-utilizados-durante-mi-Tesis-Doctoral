@@ -1,0 +1,112 @@
+Welcome to DynaFit.  Please complete the script template below.
+
+To get started, choose menu Help :: Getting Started.
+
+_______________________________________________________________________
+
+[task]
+
+
+
+  data = equilibria
+
+
+
+  task = fit
+
+
+
+[mechanism]
+
+
+
+ 
+
+
+
+  ;P + P <==> PP : K1 assoc.
+
+
+
+  PP + D <==> PPD : K2 assoc.
+
+  PP + D2 <==> PPD2 : K3 assoc.
+
+  
+
+
+
+[constants]
+
+
+
+
+
+  ;K1 = 100000    ; unit: nM-1   tigth binding 10^12M-1
+
+
+
+  K2 = 0.01804 ; unit: nM-1
+
+  K3 = 0.01804 ?
+  
+
+
+
+
+
+[data]
+
+
+
+; error   data
+
+
+
+
+
+
+
+ ; mesh logarithmic from 0 to 100 step 1
+
+
+
+ 
+
+ ; mesh  linear from 0 to 10000 step 1 
+
+ 
+
+
+
+; mesh is not required.
+
+
+
+   directory D:\Giuliano\Doctorado\Anisotropy\20211021
+   extension txt
+
+   
+
+  variable P
+
+  file 20211021_Anis_Competition_10nM_1451new_100nM1451NMR_33.0uM_SqrR_Buffer400mMNaCl_DYNAFIT_INPUT| response D = 0.0156315728 ?  ,  PPD = 0.0208466044 ? , PPD2 = 0   | conc D = 10  | conc D2 = 100 
+  file 20211021_Anis_Competition_10nM_1451new_100nM1451NMR_33.0uM_SqrR_Buffer400mMNaCl_duplicatee_DYNAFIT_INPUT| response D = 0.015562129 ?  ,  PPD = 0.0224213541 ? , PPD2 = 0   | conc D = 10  | conc D2 = 100  
+  
+
+[output]
+
+
+
+   directory D:\Giuliano\Doctorado\Anisotropy\Ajustes_Dynafit_Varios_Exp\400mM_Comp_10xExcess
+
+[settings]
+
+{Output}
+
+BlackBackground = n 
+
+   
+
+[end]
+
