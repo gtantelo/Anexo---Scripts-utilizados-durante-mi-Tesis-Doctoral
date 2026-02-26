@@ -1,0 +1,19 @@
+SqrR_C9S_red_35C               !Name of molecule
+Red_out_35C              !Name for output file 
+red_noanisou.pdb                      !Strucutural (PBD) file       
+3.2                          !AER, radius of the atomic elements
+6              !NSIG
+2.66            !Minimum radius of beads in the shell (SIGMIN)  
+1.45            !Maximum radius of beads in the shell (SIGMAX)  
+308.          !T (temperature, K)
+0.00719          !ETA (Viscosity of the solvent in poises)
+1              !Iflag (dipoles)                                
+-2.7126         !Gyromagnetic ratio of N: unit: 10^7 rad.s^-1.T^-1
+1.02            !N-H distance, angstroms
+-160          !Chemical shift anisotropy, ppm
+2               !Number of values of magnetic field
+18.89           !Magnetic field, teslas
+14.09           !Magnetic field, teslas
+*                             !End of file
+
+!7.05            !Magnetic field, teslas
