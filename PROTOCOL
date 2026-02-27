@@ -1,0 +1,38 @@
+0) cp *.com PATHTOTHENUMBERED/.
+copy the content of the verifiedNUSprocBruker folder into the numbered directory of the experiment you want to process
+1) ./bruker (in the numbered directory to generate fid.com specific to your data)
+  a) in the middle section select "During Processing (Better Baseline)" for the Digital Oversampling Correction
+  b) for chemical shift calibration select "From O1/BF1"
+  c) click [Read Parameters] again
+  d) Set Acquisition mode in indirect dimensions (y,z-axis) to Real
+  e) save the script as fid.com
+
+2) open the fid.com in a text editor
+     a) remove all references to nus at the top - keep the first line with
+        #!/bin/csh, and keep everything following bruk2pipe
+     b) in the bruk2pipe line, change ./ser_full to ./ser
+     c) change yN and yT to 4 
+     d) change zN and zT to the # of sampled points (should be length of schedule)
+	(if you forgot, the first number when you run "wc NUSLISTFILENAME" is the length of 	   your schedule)
+     e) remove the xyz2pipe line and everything after it
+     f) For standard triple resonance spectra, the N dimension is collected with ECHO/ANTIECHO. If so, you probably need to erase also the -out line and write the following:
+        | nmrPipe -fn MAC -macro $NMRTXT/ranceY.M -noRd -noWr   \
+        | pipe2xyz -x -out ./fid/test%03d.fid -verb -ov -to 0
+     g) save fid.com 
+3) ./fid.com
+   a) note that if you have an incomplete dataset it will give an error that tells you something about what number you should actually put for zN
+4) ./ft1.com 
+	Follow the directions in the console to correct the phase in the first dimension 		(and the extraction -optional-). In nmrDraw look with h at the 1st line and find the 		right p0.
+		"Press any key to continue to check phasing with nmrDraw.
+		If you change the phase, rerun ft1.com to check again.
+		Otherwise, correct the phase in the reconstruct.com
+		also consider correcting the EXT extraction in the same way
+		and then run reconstruct.com."
+5) ./reconstruct.com
+6) open f23.com in a text editor and change the name of the .ucsf to your experiment name
+7) ./ft23.com   then check results with nmrDraw HN.15N.dat or nmrDraw HN.13C.dat
+   a) If your HN.15N.dat looks like it was split in half and pasted together upside down, you should try FT -alt -verb instead of FT -auto
+   b) Check whether you need to uncomment the REV line, especially in N dimension, since the HN.15N.dat plane should match your HSQC
+   c) If your HN.15N.dat looks whole but like a second copy was pasted on top upside down, go back to the fid.com and make sure you have the RanceY line just before the last line.
+   d) Similar considerations apply to the HN.13C.dat plane.
+8) you can remove xyz, yzx, yzx_ist, fid, rec directories 
